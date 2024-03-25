@@ -1,0 +1,13 @@
+%% compute the loading term at a given coordinate (x,y)
+function z=carico2(x,y,k,nu)
+
+if k==1        % first component
+ z = -50*(1-2*x).*y.*(1-y)-nu*2*(pi^2)...
+     *(cos(pi*x).^2-(3)*sin(pi*x).^2).*sin(pi*y).*cos(pi*y)...
+     +pi.*(sin(pi*x)).^3.*(sin(pi*y)).^2.*cos(pi*x);
+ 
+elseif k==2    % second component
+ z = -50*(1-2*y).*x.*(1-x)+nu*2*(pi^2)...
+     *(cos(pi*y).^2-(3)*sin(pi*y).^2).*sin(pi*x).*cos(pi*x)...
+     +pi*(sin(pi*y)).^3.*(sin(pi*x)).^2.*cos(pi*y);
+end
